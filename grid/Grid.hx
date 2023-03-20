@@ -72,26 +72,6 @@ class Grid {
         return null;
     }
 
-    public function getNeighborOfCell(cell:Cell) {
-        var neighbors:Array<Array<Int>> = [];
-
-        for (xoff in -1...2) {
-            for (yoff in -1...2) {
-                if (xoff == 0 && yoff == 0) continue;
-                var i = xoff + cell.i_x;
-				var j = yoff + cell.i_y;
-
-                if (i > -1 && i < gridSize && j > -1 && j < gridSize) {
-                    var neighborCell = [i, j];
-
-                    neighbors.push(neighborCell);
-                }
-            }
-        }
-
-        return neighbors;
-    }
-
     public function getCellByIndex(x:Int, y:Int):Cell {
         for (i in cells) {
             if (i.i_x == x && i.i_y == y) {
