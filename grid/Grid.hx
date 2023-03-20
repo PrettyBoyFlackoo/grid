@@ -92,7 +92,7 @@ class Grid {
             for (yoff in -1...2) {
                 if (xoff == 0 && yoff == 0) continue;
                 var i = xoff + cell.i_x;
-				var j = yoff + cell.i_y;
+		var j = yoff + cell.i_y;
 
                 if (i > -1 && i < gridSize && j > -1 && j < gridSize) {
                     var neighborCell = getCellByIndex(i, j);
