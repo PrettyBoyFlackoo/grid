@@ -33,11 +33,4 @@ class Cell {
 
         return new Vec2(width, height);
     }
-
-    ///Be Careful with this function!
-    public function getfCost():Int {
-        var temp = gCost + hCost;
-
-        return temp;
-    }
 }
