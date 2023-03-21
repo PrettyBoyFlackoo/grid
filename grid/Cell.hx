@@ -11,13 +11,6 @@ class Cell {
 
     public var isOccupied:Bool = false;
 
-    ///Pathfinding
-    public var hCost:Int;
-    public var gCost:Int;
-
-    public var parent:Cell;
-
-
     public function new(i_x:Int, i_y:Int) {
         this.i_x = i_x;
         this.i_y = i_y;
