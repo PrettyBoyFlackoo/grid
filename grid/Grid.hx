@@ -83,7 +83,7 @@ class Grid {
     }
 
     ///Returns all cell neighbors at given cell
-    public function getNeighborOfCellNew(cell:Cell):Array<Cell> {
+    public function getNeighborOfCellNew(cell:Cell, corners:Bool = true):Array<Cell> {
         if (cell == null) return [];
 
         var neighbors:Array<Cell> = [];
@@ -91,14 +91,29 @@ class Grid {
         for (xoff in -1...2) {
             for (yoff in -1...2) {
                 if (xoff == 0 && yoff == 0) continue;
-                var i = xoff + cell.i_x;
-		var j = yoff + cell.i_y;
 
-                if (i > -1 && i < gridSize && j > -1 && j < gridSize) {
-                    var neighborCell = getCellByIndex(i, j);
+                if (corners) {
+                    var i = xoff + cell.i_x;
+                    var j = yoff + cell.i_y;
+    
+                    if (i > -1 && i < gridSize && j > -1 && j < gridSize) {
+                        var neighborCell = getCellByIndex(i, j);
+    
+                        neighbors.push(neighborCell);
+                    }
+                } else {
+                    if (Math.abs(xoff) + Math.abs(yoff) > 1) continue;
 
-                    neighbors.push(neighborCell);
+                    var i = xoff + cell.i_x;
+                    var j = yoff + cell.i_y;
+
+                    if (i > -1 && i < gridSize && j > -1 && j < gridSize) {
+                        var neighborCell = getCellByIndex(i, j);
+
+                        neighbors.push(neighborCell);
+                    }
                 }
+                
             }
         }
 
